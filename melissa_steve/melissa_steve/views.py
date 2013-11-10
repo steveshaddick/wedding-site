@@ -21,10 +21,8 @@ def json_response(success, response={}):
 
 
 def home(request):
-	response = render(
+	return render(
         request,
         'melissa_steve/index.html',
-        {
-            
-        }
+        {}
     )
