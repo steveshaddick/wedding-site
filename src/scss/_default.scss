@@ -1,0 +1,98 @@
+@media screen and (min-width: 641px) {
+	.mobile-only {
+		display:none !important;
+	}
+}
+
+.lt-ie9 {
+	.mobile-only {
+		display:none !important;
+	}
+}
+
+html, body {
+	height:100%;
+	@include bodyFont;
+	background: url(/static/img/bw-tile-bg.jpg);
+}
+
+h1 {
+	text-transform:uppercase;
+	font-size:55px;
+	font-weight:400;
+}
+
+h2, h3 {
+	font-size:48px;
+	font-weight:400;
+	margin-bottom: 0;
+}
+
+.main-wrapper {
+	width:80%;
+	max-width:1240px;
+	min-width: 620px;
+	border-left:10px solid $brown;
+	border-right:10px solid $brown;
+	background:$lightBlue;
+	margin:0 auto;
+	text-align:center;
+	padding-bottom:50px;
+}
+
+.top-section {
+	h1 {
+		margin-bottom: 0;
+	}
+	h2 {
+		margin-top: 0;
+	}
+	.wedding-illustration {
+		width:80%;
+		max-width: 600px;
+	}
+
+}
+
+.rsvp-section {
+	text-align: left;
+	width:80%;
+	margin: 0 auto;
+}
+
+
+.rsvp-form {
+
+	.field {
+		margin-bottom:30px;
+
+		&.error {
+
+			label {
+				color:$red;
+			}
+			input[type=text]{
+				border: 1px $red solid;
+			}
+		}
+	}
+
+	label {
+		color:#555;
+	}
+
+	input[type=text]{
+		width:100%;
+		font-size:20px;
+		padding:5px 0;
+		border:0;
+	}
+	input[type="submit"] {
+		font-size:20px;
+		padding:10px;
+	}
+}
+
+.cls {
+	display:none;
+}

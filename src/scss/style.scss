@@ -1,0 +1,19 @@
+@import "compass/css3/transition";
+
+$lightBlue: #ddece9;
+$brown: #705236;
+$red: #dc1029;
+
+@mixin titleFont{
+
+} 
+@mixin bodyFont {
+	font-family: 'Pompiere', cursive;
+	font-weight:400;
+	font-size: 30px;
+}
+
+@import 'normalize';
+@import 'boilerplate-pre';
+@import 'default';
+@import 'boilerplate-post';

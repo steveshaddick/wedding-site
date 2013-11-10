@@ -52,3 +52,4 @@ config/environments/
 # Project specific #
 ####################
 weddingenv/
+melissa_steve/settings/env.py
