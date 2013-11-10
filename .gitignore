@@ -2,3 +2,53 @@
 *.pot
 *.pyc
 local_settings.py
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Python #
+##########
+*.pyc
+*.pyo
+*.db
+virtualenv
+
+# Local Development #
+#####################
+.sass-cache
+.vagrant
+node_modules/
+tmp
+
+# Django #
+##########
+/media/
+
+# Capistrano #
+##########
+config/deploy/
+config/environments/
+
+# Project specific #
+####################
+weddingenv/
