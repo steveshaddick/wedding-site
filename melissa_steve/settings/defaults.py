@@ -116,6 +116,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'south',
     'melissa_steve',
+    'wedding_rsvp',
 )
 
 LOGIN_URL = 'login'
