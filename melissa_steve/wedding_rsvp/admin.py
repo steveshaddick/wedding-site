@@ -4,6 +4,6 @@ from models import WeddingRSVP
 
 
 class WeddingRSVPAdmin(admin.ModelAdmin):
-	pass
+	readonly_fields = ('names', 'attending','dietary_restrictions', )
 
-admin.site.register(WeddingRSVP)
+admin.site.register(WeddingRSVP, WeddingRSVPAdmin)

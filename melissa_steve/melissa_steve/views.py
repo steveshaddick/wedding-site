@@ -20,6 +20,7 @@ def json_response(success, response={}):
     return HttpResponse(json.dumps(response), mimetype='application/json')
 
 
+@ensure_csrf_cookie
 def home(request):
 	return render(
         request,

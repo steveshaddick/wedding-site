@@ -1,7 +1,37 @@
 {% extends "melissa_steve/base.html" %}
 
 {% block content %}
-hey
+<img class="wedding-illustration" src="/static/img/melissa-steve.jpg" alt="Melissa + Steve">
+<div class="top-section">
+	<h1>Melissa & Steve</h1>
+	<h2>January 25th, 2014</h2>
+</div>
+
+<div class="rsvp-section">
+	<h3>RSVP</h3>
+	<form id="frmRSVP" class="rsvp-form" action="{% url 'wedding_rsvp:submit' %}" method="POST">
+		{% csrf_token %}
+		<div class="field">
+			<label id="rdoAttending" for="rdoAttending">Are you attending?</label><br>
+			<input type="radio" name="rdoAttending" value="yes"> You bet! Wouldn't miss it!<br>
+			<input type="radio" name="rdoAttending" value="no"> No - sorry, it's just not possible.
+		</div>
+
+		<div class="extra-form">
+			<div class="field">
+				<label id="namesLabel" for="txtNames">Please enter the full names of attendees:</label><br>
+				<input type="text" id="txtNames" name="txtNames" placeholder="Full Names"><br>
+			</div>
+			<div class="field">
+				<label for="txtNames">Please enter any sort of dietary restrictions:</label><br>
+				<input type="text" id="txtDiet" name="txtDiet" placeholder="ex. I am allergic to salted caramel"><br>
+			</div>
+		</div>
+
+		<input class="submit" type="submit" value="Send">
+	</form>
+</div>
+
 {% endblock %}
 
 {% block cls %}
