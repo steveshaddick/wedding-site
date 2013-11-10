@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}Melissa & Steve{% endblock %}</title>
+        <meta name="description" content="{% block description %}Melissa + Steve. You know the people, now know the website.{% endblock %}">
+        <meta name="viewport" content="width=device-width">
+        <link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" />
+
+        <meta property="og:title" content="{% block fb_title %}Melissa & Steve{% endblock %}"/>
+        <meta property="og:url" content="melissasteve.com"/>
+        <meta property="og:image" content="{{ FB_SHARE_IMAGE }}"/>
+        <meta property="og:description" content="Melissa + Steve. You know the people, now know the website."/>
+
+        <link href='http://fonts.googleapis.com/css?family=Pompiere' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="/static/css/style.css">
+    </head>
+    <body class="{% block bodyclass %}{% endblock %}">
+        <div id="fb-root"></div>
+
+        <!--[if lt IE 9]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="overlay">
+        </div>
+
+        <div class="main-wrapper">
+            {% block content %}{% endblock %}
+        </div>
+
+        <div class="cls">
+            {% block cls %}{% endblock %}
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/static/js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="//connect.facebook.net/en_US/all.js#appId={{FB_APP_ID}}&xfbml=1"></script>
+        
+        <script src="/static/js/vendor/jquery.cookie.js"></script>
+
+        <script src="/static/js/lib.min.js"></script>
+        <script src="/static/js/main.min.js"></script>
+        
+        {% block script %}{% endblock %}
+
+        <script>
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '{{ GOOGLE_UA }}']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+        </script>
+
+    </body>
+</html>
