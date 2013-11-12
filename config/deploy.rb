@@ -1,7 +1,7 @@
 require 'capistrano/ext/multistage'
 require File.expand_path(File.dirname(__FILE__) + '/functions')
 
-set :stages, %w(vagrant staging production)
+set :stages, %w(production)
 
 set :deploy_via, :remote_cache
 set :use_sudo, false
@@ -9,10 +9,10 @@ set :keep_releases, 5
 set :normalize_asset_timestamps, false
 
 set :scm, :git
-set :repository, "git@github.com:steveshaddick/wedding-site.git"
+set :repository, "https://github.com/steveshaddick/wedding-site.git"
 
 set :local_data_dir, File.expand_path(File.dirname(__FILE__) + "/../data")
-set :python_virtualenv, "weddingenv"
+set :python_virtualenv, "melissasteveenv"
 set :django_project, "melissa_steve"
 set :grunt_tasks, ['production']
 
@@ -40,7 +40,7 @@ namespace :deploy do
     #supervisor must be set up
     #(bit of a mistake in the in the configs)
     if environment == 'production'
-      run "source #{deploy_to}/#{python_virtualenv}/bin/activate && supervisorctl -c #{current_release}/config/environments/#{environment}/melissasteve_supervisor.conf restart melissasteve && deactivate"
+      sudo "uwsgi --reload /tmp/melissasteve.pid"
     end
   end
 
@@ -54,8 +54,9 @@ end
 namespace :env do
 
   task :move do
-    run "cp -f #{release_path}/config/environments/#{environment}/settings.py #{release_path}/melissa_steve/settings/settings.py"
-    run "cp -f #{release_path}/config/environments/#{environment}/robots.txt #{release_path}/melissa_steve/melissa_steve/templates/melissa_steve/robots.txt"
+    env_path = File.expand_path(File.dirname(__FILE__) + "/environments/#{environment}")
+    upload("#{env_path}/settings.py","#{release_path}/melissa_steve/settings/env.py")
+    upload("#{env_path}/robots.txt","#{release_path}/melissa_steve/melissa_steve/templates/melissa_steve/robots.txt")
   end
 
 end
